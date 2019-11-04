@@ -1,62 +1,107 @@
-<form>
-    <fieldset>
-      <legend>ACTIVIDADES COMPLEMENTARIAS</legend>
-      <div class="form-group">
-        <label for="staticEmail" class="col-sm-2 col-form-label">Nombre Actividad</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Nombre Actividad">
-      </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Nombre del docente</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Nombre">
-      </div>
-      <div class="form-group">
-          <label for="exampleInputPassword1">Fecha finalización</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="dd/mm/yyyy">
-          <small id="emailHelp" class="form-text text-muted">Recuerde tener en cuenta las fechas establecidas en el calendario academico.</small>
-        </div>
-      <div class="form-group">
-        <label for="exampleSelect1">Seleccione tipo de actividad a reportar</label>
-        <select class="custom-select">
-            <option selected="Seleccione"></option>
-            <option value="tutorias">Tutorías</option>
-            <option value="investigacion">Investigación</option>
-            <option value="extension">Extensión</option>
-            <option value="materialapoyo">Material de Apoyo</option>
-            <option value="trabajogrado">Trabajo de Grago</option>
-            <option value="interinstitucional">Cooperación Interinstitucional</option>
-            <option value="crecimiento">Crecimiento Profesional</option>
-            <option value="encargo">Encargo Administrativo</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="exampleTextarea">Describa la actividad</label>
-        <textarea class="form-control" id="exampleTextarea" rows="4"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="exampleInputFile">Seleccione archivos de evidencia</label>
-        <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      </div>
-      <fieldset class="form-group">
-          <legend>Corte entrega</legend>
-          <div class="form-check">
-            <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-              Primero periodo
-            </label>
-          </div>
-          <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-              Segundo periodo
-            </label>
-          </div>
-          <div class="form-check">
-          <label class="form-check-label">
-              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3">
-              Entrega final
-            </label>
-          </div>
-        </fieldset>
-      <button type="submit" class="btn btn-primary">Enviar reporte</button>
-    </fieldset>
-  </form>
+<div class="d-flex jusrify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h2">AGREGAR DOCENTE</h1>
+</div>
+<p>AGREGAR</p>
+<div class="form-group">
+  <label>Tipo Documento:
+      <select ng-model="selComboTipoDocumento" SIZE=1>
+          <option value="">------Seleccionar------</option>
+          <option value="">CÉDULA DE CIUDADANIA</option>
+          <option value="">CÉDULA DE EXTRANJERÍA</option>
+          <option value="">TARJETA DE IDENTIDAD</option>
+          <option value="">DNI</option>
+          <option value="">REGISTRO CIVIL</option>
+      </select>
+  </label>
+</div>
+<!--IDENTIFICACION-->
+<div class="form-group">
+  <label>Identificacion:
+      <input [(ngModel)]="docente.Identificacion" class="form-control" placeholder="DIGITE DOCUMENTO" type="number" />
+  </label>
+</div>
+
+<!--Primer Nombre:-->
+<div class="form-group">
+  <label>Primer Nombre:
+      <input [(ngModel)]="docente.Primer_Nombre" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+<!--SEGUNDO Nombre:-->
+<div class="form-group">
+  <label>Segundo Nombre:
+      <input [(ngModel)]="docente.Segundo_Nombre" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+<!--Primer APELLIDO:-->
+<div class="form-group">
+  <label>Primer Apellido:
+      <input [(ngModel)]="docente.Primer_Apellido" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+<!--SEGUNDO APELLIDO:-->
+<div class="form-group">
+  <label>Segundo Apellido:
+      <input [(ngModel)]="docente.Segundo_Apellido" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+<!--Fecha Nacimiento
+
+<ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+-->
+
+<div class="form-group">
+  <label>Fecha Nacimiento:
+      <input [(ngModel)]="docente.Fecha_Nacimiento" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+
+<div class="form-group">
+  <label>Edad:
+      <input [(ngModel)]="docente.Edad" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+
+<div class="form-group">
+  <label>Genero:
+      <input [(ngModel)]="docente.Genero" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+
+<div class="form-group">
+  <label>Email:
+      <input [(ngModel)]="docente.Email" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+
+<div class="form-group">
+  <label>Telefono:
+      <input [(ngModel)]="docente.Telefono" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+
+<div class="form-group">
+  <label>Cargo:
+      <input [(ngModel)]="docente.Cargo" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+
+<div class="form-group">
+  <label>Fecha Vinculacion:
+      <input [(ngModel)]="docente.Fecha_Vinculacion" class="form-control" placeholder="DIGITE TIPO DE DOCUMENTO"
+          type="text" />
+  </label>
+</div>
+<div class="form-group">
+  <button (click)="add()" class="btn btn-primary">Agregar</button>
+</div>

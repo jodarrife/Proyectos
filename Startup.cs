@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using System;
 using Microsoft.EntityFrameworkCore;
-using TaskSharpHTTP.Models;
+using UPC.Modelos;
 
 namespace UPC
 {
@@ -24,10 +24,35 @@ namespace UPC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ClassContext>(opt =>
-            opt.UseInMemoryDatabase("ActComplementariasBD"));
+            opt.UseSqlServer(@"Server=RINCONES\SQLEXPRESS;Database=UPCDataBase;Trusted_Connection=True;"));
 
+            //services.AddDbContext<ClassContext>(opt =>
+            //opt.UseInMemoryDataBase("TaskDB"));
 
             services.AddControllersWithViews();
+
+            //Register the swagger services
+            services.AddSwaggerDocument(config =>
+            {
+                config.PostProcess = document =>
+                {
+                    document.Info.Version = "v1";
+                    document.Info.Title = "Task API";
+                    document.Info.Description = "A simple ASP.NET Core web API";
+                    document.Info.TermsOfService = "None";
+                    document.Info.Contact = new NSwag.OpenApiContact
+                    {
+                        Name = "Programacion Web",
+                        Email = string.Empty,
+                        Url = "https://sites.google.com/a/unicesar.edu.co/borisgonzalez/home"
+                    };
+                    document.Info.License = new NSwag.OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = "https://example.com/license"
+                    };
+                };
+            });
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -55,6 +80,9 @@ namespace UPC
             {
                 app.UseSpaStaticFiles();
             }
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
 
             app.UseRouting();
 

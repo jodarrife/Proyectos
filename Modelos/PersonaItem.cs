@@ -1,15 +1,16 @@
 using Newtonsoft.Json;
-using System;
 ///<Summary>
 /// Se coloca TaskItem a la Clase en lugar de Task,porque Task es una palabra Reservada de .NetCore
 /// </Summary>
 ///
+using System;
 
 namespace UPC.Modelos
 {
-    public class JefeDepartamento 
+    public class PersonaItem
     {
-        public JefeDepartamento() { }
+        /* 
+        public PersonaItem() { }
         [JsonProperty("tipo_Documento")]
         public string Tipo_Documento { get; set; }
         [JsonProperty("identificacion")]
@@ -38,24 +39,21 @@ namespace UPC.Modelos
         public DateTime Fecha_Vinculacion { get; set; }
         [JsonProperty("estadoSys")]
         public string EstadoSys { get; set; } //estado en el sistema
-        [JsonProperty("cod_Departamentos")]
-        public int Cod_Departamentos { get; set; }
-        public JefeDepartamento(
-            string tipo_Documento,
-            string identificacion,
-            string primer_Nombre,
-            string segundo_Nombre,
-            string primer_Apellido,
-            string segundo_Apellido,
-            DateTime fecha_Nacimiento,
-            int edad,
-            string genero,
-            string email,
-            string telefono,
-            string cargo,
-            DateTime fecha_Vinculacion,
-            string estadoSys,
-            int cod_Departamentos)
+        public PersonaItem(
+        string tipo_Documento,
+        string identificacion,
+        string primer_Nombre,
+        string segundo_Nombre,
+        string primer_Apellido,
+        string segundo_Apellido,
+        DateTime fecha_Nacimiento,
+        int edad,
+        string genero,
+        string email,
+        string telefono,
+        string cargo,
+        DateTime fecha_Vinculacion,
+        string estadoSys)
         {
             Tipo_Documento = tipo_Documento;
             Identificacion = identificacion;
@@ -71,14 +69,15 @@ namespace UPC.Modelos
             Cargo = cargo;
             Fecha_Vinculacion = fecha_Vinculacion;
             EstadoSys = estadoSys;
-            Cod_Departamentos = cod_Departamentos;
         }
+
+        //NOMBRE COMPLETO
         public string NombreCompleto
         {
             get
             {
                 return Primer_Nombre + " " + Segundo_Nombre + " " + Primer_Apellido + " " + Segundo_Apellido;
             }
-        }
+        }*/
     }
 }
